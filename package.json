@@ -1,0 +1,14 @@
+{
+  "name": "glossary-project",
+  "version": "1.0.0",
+  "description": "Glossary Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}

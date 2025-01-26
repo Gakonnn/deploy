@@ -1,0 +1,30 @@
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore local SQLite database file
+database/terms.db
+
+# Ignore environment variables
+.env
+
+# Ignore log files
+*.log
+npm-debug.log*
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore local seed data file
+data/terms.json
+
+# Ignore package-lock.json (optional, depending on your workflow)
+package-lock.json
+
+# Ignore temporary files
+*.tmp
+*.temp

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Глоссарий</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>IT Словарь</h1>
+
+    <!-- Daily Term - Always visible -->
+    <div class="daily-term">
+      <h2>Термин дня!</h2>
+      <% if (dailyTerm) { %>
+        <div class="daily-card">
+          <h3><%= dailyTerm.term %></h3>
+          <p><%= dailyTerm.definition %></p>
+        </div>
+      <% } else { %>
+        <p class="no-daily-term">Сегодняшний термин не найден</p>
+      <% } %>
+    </div>
+
+    <!-- Search Form -->
+    <form action="/search" method="GET" class="search-form">
+      <input
+        type="text"
+        name="q"
+        placeholder="Поиск терминов или определений..."
+        value="<%= searchQuery || '' %>"
+        autocomplete="off"
+      >
+    </form>
+
+    <!-- Letter Navigation -->
+    <div class="letters">
+      <% const alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split(''); %>
+      <% alphabet.forEach(letter => { %>
+        <a
+          href="/letter/<%= letter %>"
+          class="letter-link <%= activeLetter === letter ? 'active' : '' %>"
+        >
+          <%= letter %>
+        </a>
+      <% }) %>
+    </div>
+
+    <!-- Terms List -->
+    <div class="terms">
+      <% if (Object.keys(groupedTerms).length === 0) { %>
+        <p class="no-results">По вашему запросу ничего не найдено</p>
+      <% } else { %>
+        <% Object.keys(groupedTerms).sort().forEach(letter => { %>
+          <div class="letter-group">
+            <h2 class="letter-header"><%= letter %></h2>
+            <div class="terms-list">
+              <% groupedTerms[letter].forEach(term => { %>
+                <div class="term-card">
+                  <h3 class="term-title"><%= term.term %></h3>
+                  <p class="term-definition"><%= term.definition %></p>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

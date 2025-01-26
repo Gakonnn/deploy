@@ -1,0 +1,118 @@
+:root {
+  --black: #1a1a1a;
+  --gray: #2d2d2d;
+  --dark-gray: #202020;
+  --accent: #4a90e2;
+  --text: #e0e0e0;
+}
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Daily Term */
+.daily-term {
+  background: var(--dark-gray);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border: 1px solid var(--gray);
+}
+
+.daily-card {
+  background: var(--gray);
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+.no-daily-term {
+  color: #888;
+  font-style: italic;
+}
+
+/* Search */
+.search-form input {
+  width: 100%;
+  padding: 12px;
+  background: var(--dark-gray);
+  border: 1px solid var(--gray);
+  color: var(--text);
+  border-radius: 4px;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+/* Letters Navigation */
+.letters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.letter-link {
+  background: var(--dark-gray);
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.letter-link.active,
+.letter-link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Terms List */
+.terms-list {
+  display: grid;
+  gap: 20px;
+}
+
+.term-card {
+  background: var(--dark-gray);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+}
+
+.term-title {
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.no-results {
+  text-align: center;
+  color: #888;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+/* Letter Groups */
+.letter-group {
+  margin-bottom: 40px;
+}
+
+.letter-header {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
