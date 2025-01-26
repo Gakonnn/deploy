@@ -1,9 +1,12 @@
+require('dotenv').config(); // Load environment variables
+const port = process.env.PORT || 3000; // Use PORT from .env or default to 3000
+const dbPath = process.env.DATABASE_URL; // Use DATABASE_URL from .env
+
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const app = express();
-const port = 3000;
 
-const db = new sqlite3.Database('./database/terms.db', (err) => {
+const db = new sqlite3.Database(dbPath, (err) => {
   if (err) console.error(err.message);
   console.log('Connected to SQLite database.');
 });
